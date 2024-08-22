@@ -5,7 +5,7 @@ body {
     font-family: "Montserrat", system-ui;
     margin: 0;
     padding: 0;
-    height: 100%;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
 }
@@ -32,6 +32,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     width: 100%;
     position: relative;
     padding: 20px 15px;
@@ -43,11 +44,13 @@ header {
     width: 100px;
     position: absolute;
     left: 15px;
+    margin-bottom: 20px;
 }
 
 .titulo {
     text-align: center;
     margin: 0;
+    margin-top: 20px;
 }
 
 nav {
@@ -161,7 +164,10 @@ li {
 }
 
 .welcome-container {
+    display: flex;
+    align-items: center;
     text-align: center;
+    flex-direction: column;
     padding: 50px;
     background-color: #EEEEEE;
     margin: 70px auto;
@@ -203,6 +209,10 @@ li {
     box-sizing: border-box;
 }
 
+@media screen and (min-width: 1024px) {
+
+}
+
 /* Responsividade para Tablet */
 @media screen and (min-width: 768px) and (max-width: 1023px) {
     .cabecalho {
@@ -220,8 +230,14 @@ li {
         font-size: 1.5rem;
     }
 
+    main {
+        min-height: 800px;
+    
+    }
+
     nav {
-        flex-direction: column;
+        flex-direction: row;
+        gap: 20px;  
         padding: 10px 15px;
     }
 
@@ -235,7 +251,7 @@ li {
     }
 
     .welcome-container {
-        margin: 20px 15px;
+        margin: 300px 20px 0 20px;
         /* Ajuste para manter alinhamento com container */
         padding: 30px;
     }
@@ -263,8 +279,14 @@ li {
         margin-top: 10px;
     }
 
+    main {
+        min-height: 800px;
+    
+    }
+
     nav {
-        flex-direction: column;
+        flex-direction: flex;
+        gap: 20px;
         padding: 10px 15px;
     }
 
@@ -279,7 +301,7 @@ li {
     }
 
     .welcome-container {
-        margin: 10px 15px;
+        margin: 50px 15px;
         /* Ajuste para manter alinhamento com container */
         padding: 20px;
     }
