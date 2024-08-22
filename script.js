@@ -40,7 +40,6 @@ function login() {
 }
 
 
-
 let processos = [];
 let processoAtual = null;
 
@@ -203,9 +202,6 @@ function editarCliente(cpf) {
     document.getElementById('numeroProcesso').value = clienteAtual.numeroProcesso;
     document.getElementById('testemunhas').value = clienteAtual.testemunhas;
     document.getElementById('honorarios').value = clienteAtual.honorarios;
-    
-    // Notar que o campo de arquivo não pode ser preenchido com JavaScript por questões de segurança, então o arquivo da procuração deve ser reanexado manualmente pelo usuário ao atualizar.
-
     document.getElementById('adicionarClienteBtn').style.display = 'none';
     document.getElementById('atualizarClienteBtn').style.display = 'inline-block';
 }
@@ -232,7 +228,7 @@ function atualizarCliente() {
 }
 
 
-// Compromissos
+// Adicionar compromissos na agenda
 function adicionarCompromisso() {
     const nome = document.getElementById('compromissoNome').value;
     const data = document.getElementById('compromissoData').value;
@@ -247,7 +243,7 @@ function adicionarCompromisso() {
     }
 }
 
-// Documentos
+// Página de Documentos
 function adicionarDocumento() {
     const nome = document.getElementById('documentoNome').value;
     const arquivo = document.getElementById('documentoArquivo').files[0] ? document.getElementById('documentoArquivo').files[0].name : '';

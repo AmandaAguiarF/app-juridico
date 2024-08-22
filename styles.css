@@ -20,7 +20,6 @@ header {
     background-color: #222831;
     color: white;
     padding: 10px 15px;
-    /* Padding para alinhamento */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -36,7 +35,6 @@ header {
     width: 100%;
     position: relative;
     padding: 20px 15px;
-    /* Padding para alinhamento */
     box-sizing: border-box;
 }
 
@@ -58,7 +56,6 @@ nav {
     justify-content: center;
     background-color: #31363F;
     padding: 10px 15px;
-    /* Padding para alinhamento */
     width: 100%;
     box-sizing: border-box;
 }
@@ -71,9 +68,7 @@ nav a {
 
 .container {
     flex: 1;
-    /* Faz o container ocupar o espaço restante */
-    margin: 20px 15px;
-    /* Margem para alinhamento */
+    margin: 20px 15px; 
     box-sizing: border-box;
 }
 
@@ -87,7 +82,6 @@ form {
     margin: 50px auto;
     background: white;
     padding: 20px 15px;
-    /* Padding para alinhamento */
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     box-sizing: border-box;
@@ -171,7 +165,6 @@ li {
     padding: 50px;
     background-color: #EEEEEE;
     margin: 70px auto;
-    /* Margem para alinhamento */
     border-radius: 8px;
     box-sizing: border-box;
 }
@@ -202,7 +195,6 @@ li {
     color: #fff;
     text-align: center;
     padding: 10px 15px;
-    /* Padding para alinhamento */
     font-size: 14px;
     font-weight: 400;
     width: 100%;
@@ -247,12 +239,10 @@ li {
 
     .container {
         margin: 15px 15px;
-        /* Ajuste para manter alinhamento com header e footer */
     }
 
     .welcome-container {
         margin: 300px 20px 0 20px;
-        /* Ajuste para manter alinhamento com container */
         padding: 30px;
     }
 
@@ -297,12 +287,10 @@ li {
 
     .container {
         margin: 10px 15px;
-        /* Ajuste para manter alinhamento com header e footer */
     }
 
     .welcome-container {
         margin: 50px 15px;
-        /* Ajuste para manter alinhamento com container */
         padding: 20px;
     }
 
