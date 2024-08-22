@@ -1,21 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Krona+One&family=Montserrat:ital@0;1&display=swap');
 
+html,
 body {
     font-family: "Montserrat", system-ui;
-    background-color: #f4f4f4;
     margin: 0;
     padding: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+body {
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
 }
 
 header {
     background-color: #222831;
     color: white;
-    padding: 10px 0;
+    padding: 10px 15px;
+    /* Padding para alinhamento */
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
     width: 100%;
+    box-sizing: border-box;
 }
 
 .cabecalho {
@@ -24,26 +34,30 @@ header {
     align-items: center;
     width: 100%;
     position: relative;
-    padding: 20px;
+    padding: 20px 15px;
+    /* Padding para alinhamento */
+    box-sizing: border-box;
 }
 
 .imagem {
     width: 100px;
     position: absolute;
-    left: 10px;
+    left: 15px;
 }
 
 .titulo {
     text-align: center;
-    margin-bottom: 0;
+    margin: 0;
 }
 
 nav {
     display: flex;
     justify-content: center;
     background-color: #31363F;
-    padding: 10px 0;
+    padding: 10px 15px;
+    /* Padding para alinhamento */
     width: 100%;
+    box-sizing: border-box;
 }
 
 nav a {
@@ -53,7 +67,11 @@ nav a {
 }
 
 .container {
-    margin: 20px;
+    flex: 1;
+    /* Faz o container ocupar o espaço restante */
+    margin: 20px 15px;
+    /* Margem para alinhamento */
+    box-sizing: border-box;
 }
 
 form {
@@ -65,9 +83,11 @@ form {
     max-width: 400px;
     margin: 50px auto;
     background: white;
-    padding: 20px;
+    padding: 20px 15px;
+    /* Padding para alinhamento */
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
 }
 
 label {
@@ -80,9 +100,10 @@ input[type="email"],
 input[type="password"] {
     width: 100%;
     padding: 8px;
-    margin: 5px 0;
+    margin: 10px 0;
     border: 1px solid #ccc;
     border-radius: 4px;
+    box-sizing: border-box;
 }
 
 textarea {
@@ -90,6 +111,7 @@ textarea {
     padding: 8px;
     margin-bottom: 10px;
     border: 1px solid #ddd;
+    box-sizing: border-box;
 }
 
 button {
@@ -142,8 +164,10 @@ li {
     text-align: center;
     padding: 50px;
     background-color: #EEEEEE;
-    margin: 50px;
+    margin: 70px auto;
+    /* Margem para alinhamento */
     border-radius: 8px;
+    box-sizing: border-box;
 }
 
 .welcome-container h2 {
@@ -168,20 +192,22 @@ li {
 }
 
 .rodape {
-    margin-top: 5%;
     background-color: #31363F;
     color: #fff;
     text-align: center;
-    padding: 10px;
+    padding: 10px 15px;
+    /* Padding para alinhamento */
     font-size: 14px;
     font-weight: 400;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 /* Responsividade para Tablet */
 @media screen and (min-width: 768px) and (max-width: 1023px) {
     .cabecalho {
         flex-direction: column;
-        padding: 10px;
+        padding: 10px 15px;
     }
 
     .imagem {
@@ -196,7 +222,7 @@ li {
 
     nav {
         flex-direction: column;
-        padding: 10px 0;
+        padding: 10px 15px;
     }
 
     nav a {
@@ -204,12 +230,18 @@ li {
     }
 
     .container {
-        margin: 15px;
+        margin: 15px 15px;
+        /* Ajuste para manter alinhamento com header e footer */
     }
 
     .welcome-container {
-        margin: 20px;
+        margin: 20px 15px;
+        /* Ajuste para manter alinhamento com container */
         padding: 30px;
+    }
+
+    .rodape {
+        padding: 10px 15px;
     }
 }
 
@@ -217,7 +249,7 @@ li {
 @media (max-width: 767px) {
     .cabecalho {
         flex-direction: column;
-        padding: 10px;
+        padding: 10px 15px;
     }
 
     .imagem {
@@ -233,7 +265,7 @@ li {
 
     nav {
         flex-direction: column;
-        padding: 10px 0;
+        padding: 10px 15px;
     }
 
     nav a {
@@ -242,11 +274,17 @@ li {
     }
 
     .container {
-        margin: 10px;
+        margin: 10px 15px;
+        /* Ajuste para manter alinhamento com header e footer */
     }
 
     .welcome-container {
-        margin: 10px;
+        margin: 10px 15px;
+        /* Ajuste para manter alinhamento com container */
         padding: 20px;
+    }
+
+    .rodape {
+        padding: 10px 15px;
     }
 }
