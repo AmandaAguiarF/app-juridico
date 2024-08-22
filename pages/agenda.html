@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda - LawEase</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+    <header class="cabecalho">
+        <img class="imagem" src="/Logo_Law_Ease-removebg-preview.png" ></a>
+        <h1>Gestão Jurídica Simples</h1>
+    </header>    
+    <main>
+        <nav>
+            <a href="/pages/processos.html">Processos</a>
+            <a href="/pages/clientes.html">Clientes</a>
+            <a href="/pages/agenda.html">Agenda</a>
+            <a href="/pages/documentos.html">Documentos</a>
+        </nav>
+        <h2 class="titulo">Agenda Jurídica</h2>
+        <div class="container">
+            <form id="compromissoForm">
+                <label for="compromissoNome">Compromisso:</label>
+                <input type="text" id="compromissoNome" name="compromissoNome" required>
+
+                <label for="compromissoData">Data:</label>
+                <input type="date" id="compromissoData" name="compromissoData" required>
+
+                <label for="compromissoHora">Hora:</label>
+                <input type="time" id="compromissoHora" name="compromissoHora" required>
+
+                <button type="button" onclick="adicionarCompromisso()">Adicionar Compromisso</button>
+            </form>
+
+            <ul id="compromissoLista">
+                <!-- Compromissos serão listados aqui -->
+            </ul>
+        </div>
+    </main>
+    <script src="/script.js"></script>
+</body>
+
+</html>

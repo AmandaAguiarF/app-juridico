@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clientes - LawEase</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+    <header class="cabecalho">
+        <img class="imagem" src="/Logo_Law_Ease-removebg-preview.png" ></a>
+        <h1>Gestão Jurídica Simples</h1>
+    </header>
+    <main>
+        <nav>
+            <a href="/pages/processos.html">Processos</a>
+            <a href="/pages/clientes.html">Clientes</a>
+            <a href="/pages/agenda.html">Agenda</a>
+            <a href="/pages/documentos.html">Documentos</a>
+        </nav>
+        <h2 class="titulo">Cadastro de Clientes</h2>
+        <div class="container">
+            <form id="clienteForm">
+                <!-- Campos do formulário -->
+                <label for="clienteNome">Nome do Cliente:</label>
+                <input type="text" id="clienteNome" name="clienteNome" required>
+
+                <label for="clienteCPF">CPF:</label>
+                <input type="text" id="clienteCPF" name="clienteCPF" required>
+
+                <label for="clienteTelefone">Telefone:</label>
+                <input type="tel" id="clienteTelefone" name="clienteTelefone" required>
+
+                <label for="clienteEmail">Email:</label>
+                <input type="email" id="clienteEmail" name="clienteEmail" required>
+
+                <label for="numeroProcesso">Número do Processo:</label>
+                <textarea id="numeroProcesso" name="numeroProcesso" rows="3"></textarea>
+
+                <label for="testemunhas">Testemunhas:</label>
+                <textarea id="testemunhas" name="testemunhas" rows="3"></textarea>
+
+                <label for="honorarios">Valor do Honorário Acordado:</label>
+                <input type="number" id="honorarios" name="honorarios" required>
+
+                <label for="procuracao">Anexar Procuração:</label>
+                <input type="file" id="procuracao" name="procuracao" required>
+
+                <!-- Botões -->
+                <button type="button" id="adicionarClienteBtn" onclick="adicionarCliente()">Adicionar Cliente</button>
+                <button type="button" id="atualizarClienteBtn" onclick="atualizarCliente()" style="display:none;">Atualizar Cliente</button>
+            </form>
+
+
+            <ul id="clienteLista">
+                <!-- Clientes serão listados aqui -->
+            </ul>
+        </div>
+    </main>
+
+    <script src="/script.js"></script>
+</body>
+
+</html>

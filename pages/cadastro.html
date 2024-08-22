@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - LawEase</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <header class="cabecalho">
+        <img class="imagem" src="/Logo_Law_Ease-removebg-preview.png" ></a>
+        <h1>Gestão Jurídica Simples</h1>
+    </header> 
+    <main>
+        <div class="cadastro-container">
+            <h2>Cadastro</h2>
+            <form id="cadastroForm" onsubmit="return cadastrar()">
+                <label for="cadastroNome">Nome:</label>
+                <input type="text" id="cadastroNome" name="cadastroNome" required>
+                <label for="cadastroEmail">E-mail:</label>
+                <input type="email" id="cadastroEmail" name="cadastroEmail" required>
+                <label for="cadastroSenha">Senha:</label>
+                <input type="password" id="cadastroSenha" name="cadastroSenha" required>
+                <button onclick="window.location.href='/pages/processos.html'">Cadastrar</button>
+                <p>Já tem uma conta? <a href="login.html">Faça login</a></p>
+            </form>
+        </div>
+    </main>
+    <footer class="rodape">
+        <p>&copy; 2024 LawEase. Todos os direitos reservados.</p>
+    </footer>
+    <script src="/script.js"></script>
+</body>
+</html>
