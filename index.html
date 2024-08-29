@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LawEase - Plataforma Jurídica</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="icons/icon-180x180.png" type="image/png">
 </head>
 
 <body>
@@ -26,6 +28,13 @@
         <p>&copy; 2024 LawEase. Todos os direitos reservados.</p>
     </footer>
     <script src="script.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/service-worker.js')
+            .then(() => console.log('Service Worker registrado com sucesso.'))
+            .catch((error) => console.log('Falha ao registrar o Service Worker:', error));
+        }
+    </script>
 </body>
 
 </html>
