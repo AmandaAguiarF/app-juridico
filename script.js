@@ -1,45 +1,3 @@
-// Cadastrar novo usuário
-function cadastrar() {
-    const nome = document.getElementById('cadastroNome').value;
-    const email = document.getElementById('cadastroEmail').value;
-    const senha = document.getElementById('cadastroSenha').value;
-
-    const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
-
-    const usuarioExistente = usuarios.find(usuario => usuario.email === email);
-
-    if (usuarioExistente) {
-        alert('E-mail já cadastrado.');
-        return false;
-    }
-
-    usuarios.push({ nome, email, senha });
-    localStorage.setItem('usuarios', JSON.stringify(usuarios));
-
-    alert('Cadastro realizado com sucesso! Faça login.');
-    window.location.href = 'login.html';
-    return false;
-}
-
-// Login de usuário
-function login() {
-    const email = document.getElementById('loginEmail').value;
-    const senha = document.getElementById('loginSenha').value;
-
-    const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
-
-    const usuario = usuarios.find(usuario => usuario.email === email && usuario.senha === senha);
-
-    if (usuario) {
-        alert(`Bem-vindo, ${usuario.nome}!`);
-        window.location.href = 'index.html';
-    } else {
-        alert('E-mail ou senha incorretos.');
-    }
-    return false;
-}
-
-
 let processos = [];
 let processoAtual = null;
 
@@ -134,129 +92,6 @@ function limparFormulario() {
     document.getElementById('processoForm').reset();
 }
 
-let clientes = [];
-let clienteAtual = null; // Armazena o cliente que está sendo editado
-
-function adicionarCliente() {
-    const nome = document.getElementById('clienteNome').value;
-    const cpf = document.getElementById('clienteCPF').value;
-    const telefone = document.getElementById('clienteTelefone').value;
-    const email = document.getElementById('clienteEmail').value;
-    const numeroProcesso = document.getElementById('numeroProcesso').value;
-    const testemunhas = document.getElementById('testemunhas').value;
-    const honorarios = document.getElementById('honorarios').value;
-    const procuracao = document.getElementById('procuracao').files[0]?.name || "Nenhum arquivo anexado";
-
-    const novoCliente = {
-        nome,
-        cpf,
-        telefone,
-        email,
-        numeroProcesso,
-        testemunhas,
-        honorarios,
-        procuracao
-    };
-
-    clientes.push(novoCliente);
-    atualizarListaClientes();
-    limparFormularioCliente();
-}
-
-function atualizarListaClientes() {
-    const lista = document.getElementById('clienteLista');
-    lista.innerHTML = '';
-
-    clientes.forEach(cliente => {
-        const li = document.createElement('li');
-        li.innerHTML = `
-            <strong>Nome:</strong> ${cliente.nome} <br>
-            <strong>CPF:</strong> ${cliente.cpf} <br>
-            <strong>Telefone:</strong> ${cliente.telefone} <br>
-            <strong>Email:</strong> ${cliente.email} <br>
-            <strong>Número do Processo:</strong> ${cliente.numeroProcesso} <br>
-            <strong>Testemunhas:</strong> ${cliente.testemunhas} <br>
-            <strong>Honorários:</strong> R$ ${cliente.honorarios} <br>
-            <strong>Procuração:</strong> ${cliente.procuracao} <br><br>
-            <button onclick="editarCliente('${cliente.cpf}')">Editar</button>
-            <button onclick="removerCliente('${cliente.cpf}')">Remover</button>
-        `;
-        lista.appendChild(li);
-    });
-}
-
-function limparFormularioCliente() {
-    document.getElementById('clienteForm').reset();
-    document.getElementById('adicionarClienteBtn').style.display = 'inline-block';
-    document.getElementById('atualizarClienteBtn').style.display = 'none';
-    clienteAtual = null;
-}
-
-function editarCliente(cpf) {
-    clienteAtual = clientes.find(cliente => cliente.cpf === cpf);
-
-    document.getElementById('clienteNome').value = clienteAtual.nome;
-    document.getElementById('clienteCPF').value = clienteAtual.cpf;
-    document.getElementById('clienteTelefone').value = clienteAtual.telefone;
-    document.getElementById('clienteEmail').value = clienteAtual.email;
-    document.getElementById('numeroProcesso').value = clienteAtual.numeroProcesso;
-    document.getElementById('testemunhas').value = clienteAtual.testemunhas;
-    document.getElementById('honorarios').value = clienteAtual.honorarios;
-    document.getElementById('adicionarClienteBtn').style.display = 'none';
-    document.getElementById('atualizarClienteBtn').style.display = 'inline-block';
-}
-
-function atualizarCliente() {
-    clienteAtual.nome = document.getElementById('clienteNome').value;
-    clienteAtual.cpf = document.getElementById('clienteCPF').value;
-    clienteAtual.telefone = document.getElementById('clienteTelefone').value;
-    clienteAtual.email = document.getElementById('clienteEmail').value;
-    clienteAtual.numeroProcesso = document.getElementById('numeroProcesso').value;
-    clienteAtual.testemunhas = document.getElementById('testemunhas').value;
-    clienteAtual.honorarios = document.getElementById('honorarios').value;
-    const procuracao = document.getElementById('procuracao').files[0]?.name;
-    if (procuracao) {
-        clienteAtual.procuracao = procuracao;
-    }
-
-    atualizarListaClientes();
-    limparFormularioCliente();
-}
-    function removerCliente(cpf) {
-    clientes = clientes.filter(cliente => cliente.cpf !== cpf);
-    atualizarListaClientes();
-}
-
-
-// Adicionar compromissos na agenda
-function adicionarCompromisso() {
-    const nome = document.getElementById('compromissoNome').value;
-    const data = document.getElementById('compromissoData').value;
-    const hora = document.getElementById('compromissoHora').value;
-
-    if (nome && data && hora) {
-        const lista = document.getElementById('compromissoLista');
-        const item = document.createElement('li');
-        item.textContent = `${nome} - ${data} às ${hora}`;
-        lista.appendChild(item);
-        limparFormulario('compromissoForm');
-    }
-}
-
-// Página de Documentos
-function adicionarDocumento() {
-    const nome = document.getElementById('documentoNome').value;
-    const arquivo = document.getElementById('documentoArquivo').files[0] ? document.getElementById('documentoArquivo').files[0].name : '';
-
-    if (nome && arquivo) {
-        const lista = document.getElementById('documentoLista');
-        const item = document.createElement('li');
-        item.textContent = `${nome} - ${arquivo}`;
-        lista.appendChild(item);
-        limparFormulario('documentoForm');
-    }
-}
-
 // Função para limpar formulários
 function limparFormulario(formId) {
     document.getElementById(formId).reset();
@@ -265,30 +100,16 @@ function limparFormulario(formId) {
 var target = document.getElementById('target');
 var watchId;
 
-function appendLocation(location, verb) {
-  verb = verb || 'updated';
-  var newLocation = document.createElement('p');
-  newLocation.innerHTML = 'Location ' + verb + ': ' + location.coords.latitude + ', ' + location.coords.longitude + '';
-  target.appendChild(newLocation);
-}
+// function appendLocation(location, verb) {
+//   verb = verb || 'updated';
+//   var newLocation = document.createElement('p');
+//   newLocation.innerHTML = 'Location ' + verb + ': ' + location.coords.latitude + ', ' + location.coords.longitude + '';
+//   target.appendChild(newLocation);
+// }
 
-if ('DeviceOrientationEvent' in window) {
-    window.addEventListener('deviceorientation', deviceOrientationHandler, false);
-  } else {
-    document.getElementById('logoContainer').innerText = 'Device Orientation API not supported.';
-  }
-  
-//   function deviceOrientationHandler (eventData) {
-//     var tiltLR = eventData.gamma;
-//     var tiltFB = eventData.beta;
-//     var dir = eventData.alpha;
-    
-//     document.getElementById("doTiltLR").innerHTML = Math.round(tiltLR);
-//     document.getElementById("doTiltFB").innerHTML = Math.round(tiltFB);
-//     document.getElementById("doDirection").innerHTML = Math.round(dir);
-  
-//     var logo = document.getElementById("imgLogo");
-//     logo.style.webkitTransform = "rotate(" + tiltLR + "deg) rotate3d(1,0,0, " + (tiltFB * -1) + "deg)";
-//     logo.style.MozTransform = "rotate(" + tiltLR + "deg)";
-//     logo.style.transform = "rotate(" + tiltLR + "deg) rotate3d(1,0,0, " + (tiltFB * -1) + "deg)";
+// if ('DeviceOrientationEvent' in window) {
+//     window.addEventListener('deviceorientation', deviceOrientationHandler, false);
+//   } else {
+//     document.getElementById('logoContainer').innerText = 'Device Orientation API not supported.';
 //   }
+  
