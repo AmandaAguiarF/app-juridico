@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LawEase - Plataforma Jurídica</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="manifest" href="manifest.json">
+    <title>Processos - LawEase</title>
+    <link rel="stylesheet" href="/styles.css">
+    
     <link rel="icon" href="icons/icon-180x180.png" type="image/png">
 </head>
 
@@ -18,16 +18,65 @@
         <h1>Gestão Jurídica Simples</h1>
     </header>
     <main>
-        <div class="welcome-container">
-            <h2>Bem-vindo ao Law Ease!</h2>
-            <p>Sistema de gerenciamento jurídico na palma da sua mão.</p>
-            <button onclick="window.location.href='/pages/login.html'">Começar</button>
+        <h2 class="titulo">Gerenciamento de Processos</h2>
+        <div class="container">
+            <form id="processoForm">
+                <label for="numeroProcesso">Número do Processo:</label>
+                <input type="text" id="numeroProcesso" name="numeroProcesso" required>
+
+                <label for="cliente">Cliente:</label>
+                <input type="text" id="cliente" name="cliente" required>
+
+                <label for="vara">Vara:</label>
+                <input type="text" id="vara" name="vara" required>
+
+                <label for="juiz">Nome do Juiz:</label>
+                <input type="text" id="juiz" name="juiz" required>
+
+                <label for="dataAudiencia">Data das Audiências:</label>
+                <input type="date" id="dataAudiencia" name="dataAudiencia" required>
+
+                <label for="status">Status do Processo:</label>
+                <input type="text" id="status" name="status" required>
+
+                <button type="button" id="adicionarBtn" onclick="adicionarProcesso()">Adicionar Processo</button>
+                <button type="button" id="atualizarBtn" onclick="atualizarProcesso()" style="display:none;">Atualizar
+                    Processo</button>
+            </form>
+
+            <table id="processoTabela">
+                <thead>
+                    <tr>
+                        <th>Número do Processo</th>
+                        <th>Cliente</th>
+                        <th>Vara</th>
+                        <th>Nome do Juiz</th>
+                        <th>Data das Audiências</th>
+                        <th>Status</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Processos serão listados aqui -->
+                </tbody>
+            </table>
         </div>
+
+        <td id="doTiltFB"></td>
+  </tr>
+  <tr>
+    <td>Direction [alpha]</td>
+    <td id="doDirection"></td>
+  </tr>
+</table>
+
+<div id="logoContainer">
+  <img src="https://www.w3.org/html/logo/downloads/HTML5_Badge_512.png" id="imgLogo" alt="imglogo">
+</div>
+
+<p><small>Demo from <a href="https://www.html5rocks.com/en/tutorials/device/orientation/" target="_blank" rel="noopener">HTML5 Rocks</a> article.</small></p>
     </main>
-    <footer class="rodape">
-        <p>&copy; 2024 LawEase. Todos os direitos reservados.</p>
-    </footer>
-    <script src="script.js"></script>
+    <script src="/script.js"></script>
     <script>
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('/service-worker.js')
@@ -38,3 +87,5 @@
 </body>
 
 </html>
+
+
