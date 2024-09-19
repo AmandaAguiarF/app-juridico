@@ -1,26 +1,26 @@
-// {
-//     "name": "LawEase - Plataforma Jurídica",
-//     "short_name": "LawEase",
-//     "start_url": "/index.html",
-//     "display": "standalone",
-//     "background_color": "#222831",
-//     "theme_color": "#f4f4f4",
-//     "icons": [
-//       {
-//         "src": "icons/icon-87x87.png",
-//         "sizes": "87x87",
-//         "type": "image/png"
-//       },
-//       {
-//         "src": "icons/icon-180x180.png",
-//         "sizes": "180x180",
-//         "type": "image/png"
-//       },
-//       {
-//         "src": "icons/icon-512x512.png",
-//         "sizes": "512x512",
-//         "type": "image/png"
-//       }
+{
+    "name": "LawEase - Plataforma Jurídica",
+    "short_name": "LawEase",
+    "start_url": "/index.html",
+    "display": "standalone",
+    "background_color": "#222831",
+    "theme_color": "#f4f4f4",
+    "icons": [
+      {
+        "src": "icons/icon-87x87.png",
+        "sizes": "87x87",
+        "type": "image/png"
+      },
+      {
+        "src": "icons/icon-180x180.png",
+        "sizes": "180x180",
+        "type": "image/png"
+      },
+      {
+        "src": "icons/icon-512x512.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
       
-//     ]
-//   }
+    ]
+  }
