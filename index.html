@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Processos - LawEase</title>
     <link rel="stylesheet" href="/styles.css">
-    
+    <link rel="manifest" href="manifest.json">
     <link rel="icon" href="icons/icon-180x180.png" type="image/png">
 </head>
 
@@ -39,10 +39,18 @@
                 <label for="status">Status do Processo:</label>
                 <input type="text" id="status" name="status" required>
 
+                <!-- Botão para adicionar documento ou capturar foto -->
+                <label for="documentoArquivo">Adicionar Documento/Foto:</label>
+                <input type="file" id="documentoArquivo" name="documentoArquivo" accept="image/*,application/pdf" required>
+                <button type="button" onclick="capturarFoto()">Capturar Foto</button>
+
                 <button type="button" id="adicionarBtn" onclick="adicionarProcesso()">Adicionar Processo</button>
                 <button type="button" id="atualizarBtn" onclick="atualizarProcesso()" style="display:none;">Atualizar
                     Processo</button>
             </form>
+
+            <!-- Elemento para mostrar a imagem capturada -->
+            <img id="capturaImagem" width="640" height="480" style="display:none;" alt="Imagem Capturada">
 
             <table id="processoTabela">
                 <thead>
@@ -53,6 +61,7 @@
                         <th>Nome do Juiz</th>
                         <th>Data das Audiências</th>
                         <th>Status</th>
+                        <th>Documento/Foto</th>     
                         <th>Ações</th>
                     </tr>
                 </thead>
@@ -73,5 +82,3 @@
 </body>
 
 </html>
-
-

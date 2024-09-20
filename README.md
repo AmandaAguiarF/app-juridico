@@ -6,6 +6,7 @@ Projeto realizado para a disciplina de Coding - Mobile da Faculdade Senac Pernam
 - HTML
 - CSS
 - JavaScript
+- PWA
 
 ## Link da Aplicação:
 

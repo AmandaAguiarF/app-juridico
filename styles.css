@@ -118,7 +118,7 @@ button {
     border: none;
     cursor: pointer;
     border-radius: 4px;
-    margin-top: 10px;
+    margin-top: 10px;   
 }
 
 button:hover {
@@ -200,19 +200,6 @@ li {
     width: 100%;
     box-sizing: border-box;
 }
-
-.container {
-    perspective: 300;
-    -webkit-perspective: 300;
-  }
-  
-  #imgLogo {
-    width: 275px;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-    padding: 15px;
-  }
 
 @media screen and (min-width: 1024px) {
 

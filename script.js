@@ -9,6 +9,7 @@ function adicionarProcesso() {
     const juiz = document.getElementById('juiz').value;
     const dataAudiencia = document.getElementById('dataAudiencia').value;
     const status = document.getElementById('status').value;
+    const documento = document.getElementById('documentoArquivo').files[0];
 
     const novoProcesso = {
         id: Date.now(),
@@ -17,12 +18,51 @@ function adicionarProcesso() {
         vara,
         juiz,
         dataAudiencia,
-        status
+        status,
+        documento: documento ? URL.createObjectURL(documento) : null
     };
 
     processos.push(novoProcesso);
     atualizarTabela();
     limparFormulario();
+}
+
+// Função para ativar a câmera e capturar uma foto
+function capturarFoto() {
+    const video = document.createElement('video');
+    document.body.appendChild(video);
+
+    navigator.mediaDevices.getUserMedia({ video: true })
+        .then(function(stream) {
+            video.srcObject = stream;
+            video.play();
+
+            const canvas = document.createElement('canvas');
+            const context = canvas.getContext('2d');
+            canvas.width = 640; // Largura da imagem
+            canvas.height = 480; // Altura da imagem
+
+            setTimeout(() => {
+                context.drawImage(video, 0, 0, canvas.width, canvas.height);
+                const imagemCapturada = canvas.toDataURL('image/png');
+                document.getElementById('capturaImagem').src = imagemCapturada;
+                document.getElementById('capturaImagem').style.display = 'block';
+
+                // Converte a imagem capturada para um blob e adiciona ao input
+                canvas.toBlob(blob => {
+                    const file = new File([blob], 'captura.png', { type: 'image/png' });
+                    const dataTransfer = new DataTransfer();
+                    dataTransfer.items.add(file);
+                    document.getElementById('documentoArquivo').files = dataTransfer.files;
+                });
+
+                stream.getTracks().forEach(track => track.stop());
+                video.remove();
+            }, 2000); // Captura após 2 segundos
+        })
+        .catch(function(error) {
+            console.log('Erro ao acessar a câmera: ', error);
+        });
 }
 
 // Função para atualizar um processo existente
@@ -78,6 +118,9 @@ function atualizarTabela() {
             <td>${processo.dataAudiencia}</td>
             <td>${processo.status}</td>
             <td>
+                <a href="${processo.documento}" target="_blank">${processo.documento ? 'Abrir Documento' : 'Nenhum Documento'}</a>
+            </td>
+            <td>
                 <button onclick="editarProcesso(${processo.id})">Editar</button>
                 <button onclick="excluirProcesso(${processo.id})">Excluir</button>
             </td>
@@ -90,26 +133,6 @@ function atualizarTabela() {
 // Função para limpar o formulário após adicionar ou atualizar um processo
 function limparFormulario() {
     document.getElementById('processoForm').reset();
+    document.getElementById('capturaImagem').style.display = 'none'; // Esconder a imagem capturada
 }
 
-// Função para limpar formulários
-function limparFormulario(formId) {
-    document.getElementById(formId).reset();
-}
-
-var target = document.getElementById('target');
-var watchId;
-
-// function appendLocation(location, verb) {
-//   verb = verb || 'updated';
-//   var newLocation = document.createElement('p');
-//   newLocation.innerHTML = 'Location ' + verb + ': ' + location.coords.latitude + ', ' + location.coords.longitude + '';
-//   target.appendChild(newLocation);
-// }
-
-// if ('DeviceOrientationEvent' in window) {
-//     window.addEventListener('deviceorientation', deviceOrientationHandler, false);
-//   } else {
-//     document.getElementById('logoContainer').innerText = 'Device Orientation API not supported.';
-//   }
-  
