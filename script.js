@@ -58,7 +58,7 @@ function capturarFoto() {
 
                 stream.getTracks().forEach(track => track.stop());
                 video.remove();
-            }, 2000); // Captura após 2 segundos
+            }, 5000); // Captura após 5 segundos
         })
         .catch(function(error) {
             console.log('Erro ao acessar a câmera: ', error);

@@ -129,6 +129,8 @@ table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
+    overflow-x: auto; /* Adiciona rolagem horizontal */
+    display: block; /* Faz a tabela ocupar todo o espaço disponível */
 }
 
 table,
@@ -201,8 +203,54 @@ li {
     box-sizing: border-box;
 }
 
-@media screen and (min-width: 1024px) {
+/* Responsividade para Smartphone */
+@media (max-width: 767px) {
+    .cabecalho {
+        flex-direction: column;
+        padding: 10px 15px;
+    }
 
+    .imagem {
+        position: static;
+        margin-bottom: 10px;
+        width: 80px;
+    }
+
+    .titulo {
+        font-size: 1.2rem;
+        margin-top: 10px;
+    }
+
+    nav {
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px 15px;
+    }
+
+    nav a {
+        margin: 5px 0;
+        font-size: 0.9rem;
+    }
+
+    .container {
+        margin: 10px 15px;
+    }
+
+    .welcome-container {
+        margin: 50px 15px;
+        padding: 20px;
+    }
+    table {
+        display: block; /* Garante que a tabela se comporte como um bloco */
+        overflow-x: auto; /* Permite rolagem horizontal */
+        white-space: nowrap; /* Impede quebra de linha nas células */
+    }
+
+    th,
+    td {
+        font-size: 0.9rem; /* Ajusta o tamanho da fonte para telas pequenas */
+        padding: 8px; /* Diminui o padding das células */
+    }
 }
 
 /* Responsividade para Tablet */
@@ -222,19 +270,10 @@ li {
         font-size: 1.5rem;
     }
 
-    main {
-        min-height: 800px;
-    
-    }
-
     nav {
         flex-direction: row;
         gap: 20px;  
         padding: 10px 15px;
-    }
-
-    nav a {
-        margin: 5px 0;
     }
 
     .container {
@@ -245,56 +284,9 @@ li {
         margin: 300px 20px 0 20px;
         padding: 30px;
     }
-
-    .rodape {
-        padding: 10px 15px;
-    }
 }
 
-/* Responsividade para Smartphone */
-@media (max-width: 767px) {
-    .cabecalho {
-        flex-direction: column;
-        padding: 10px 15px;
-    }
-
-    .imagem {
-        position: static;
-        margin-bottom: 10px;
-        width: 80px;
-    }
-
-    .titulo {
-        font-size: 1.2rem;
-        margin-top: 10px;
-    }
-
-    main {
-        min-height: 800px;
-    
-    }
-
-    nav {
-        flex-direction: flex;
-        gap: 20px;
-        padding: 10px 15px;
-    }
-
-    nav a {
-        margin: 5px 0;
-        font-size: 0.9rem;
-    }
-
-    .container {
-        margin: 10px 15px;
-    }
-
-    .welcome-container {
-        margin: 50px 15px;
-        padding: 20px;
-    }
-
-    .rodape {
-        padding: 10px 15px;
-    }
+/* Responsividade para Desktop */
+@media screen and (min-width: 1024px) {
+    /* Estilos específicos para desktop podem ser adicionados aqui */
 }
